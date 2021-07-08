@@ -1,4 +1,4 @@
-#include "setting.h"
+﻿#include "setting.h"
 #include "parser_data.h"
 #include "print_data.h"
 
