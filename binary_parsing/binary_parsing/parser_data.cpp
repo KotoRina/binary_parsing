@@ -1,62 +1,70 @@
 #include "parser_data.h"
 
+Pakege					initPack()
+{
+	Pakege			init;
 
+	init.length = 0;
+	init.name = "";
+	init.data = {};
+
+	return (init);
+}
 
 std::list<Pakege>		fillList(std::list<Pakege> list)
 {
-	int				startLine;
 	int				flag;
 	char			chr;
-	Pakege		input;
-	std::string		countInStr;
-	std::string		initData;
+	Pakege			pack;
+	std::string		temp;
 	std::ifstream	in;
 
-	startLine = 0;
 	flag = 0;
-	countInStr = "";
-	initData = "";
+	temp = "";
 	in.open(pathFile);
 	while ((chr = in.get()) != EOF)
 	{
 		if (chr != '\n')
 		{
-			if (startLine == 0 && flag == 0)
-				startLine = 1;
-			if (startLine == 1 && flag < EndFF && chr != ' ')
+			if (flag < EndFF)
 			{
-				input.name += chr;
+				if (chr != ' ')
+					pack.name += chr;
+				else
+					flag++;
 			}
-			else if (startLine == 1 && flag < EndFF && chr == ' ')
-				flag++;
-			else if (flag == EndFF && startLine == 1 && chr != ' ')
-				countInStr += chr;
-			else if (flag == EndFF && startLine == 1 && chr == ' ')
+			else if (flag == EndFF)
 			{
-				flag++;
-				input.length = atoi(countInStr.c_str());
-				countInStr = "";
-			}
-			else if (flag < input.length + EndXX && chr != ' ')
-				initData += chr;
-			else if (flag <= input.length + EndXX && (chr == ' ' || chr == '\0'))
-			{
-				input.data.push_back(initData);
-				initData = "";
-				flag++;
-				if (flag == input.length + EndXX)
+				if (chr != ' ')
+					temp += chr;
+				else
 				{
-					flag = 0;
-					list.push_back(input);
-					input.data = {};
-					input.length = 0;
-					input.name = "";
+					flag++;
+					pack.length = atoi(temp.c_str());
+					temp = "";
+				}
+			}
+			else if (flag <= pack.length + EndXX)
+			{
+				if (chr != ' ')
+					temp += chr;
+				else
+				{
+					pack.data.push_back(temp);
+					temp = "";
+					flag++;
+					if (flag == pack.length + EndXX)
+					{
+						flag = 0;
+						list.push_back(pack);
+						pack = initPack();
+					}
 				}
 			}
 		}
 	}
-	input.data.push_back(initData);
-	list.push_back(input);
+	pack.data.push_back(temp);
+	list.push_back(pack);
 	in.close();
 	return (list);
 }

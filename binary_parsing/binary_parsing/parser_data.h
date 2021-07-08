@@ -3,6 +3,7 @@
 
 # include "setting.h"
 
+Pakege				initPack();
 std::list<Pakege>	fillList(std::list<Pakege> listPack);
 
 #endif
