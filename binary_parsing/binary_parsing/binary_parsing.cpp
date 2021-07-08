@@ -1,6 +1,12 @@
-﻿#include <iostream>
+#include "setting.h"
+#include "parser_data.h"
+#include "print_data.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::list<Pakege> list;
+    list = fillList(list);
+    printList(list);
+
+    return (0);
 }
