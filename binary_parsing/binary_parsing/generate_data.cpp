@@ -22,9 +22,9 @@ void		genData()
 			out << tempChr << l << ' ';
 		}
 		if (i == countPack - 1)
-			out << tempChr << tempInt;
+			out << tempChr << tempInt - 1;
 		else
-			out << tempChr << tempInt << ' ';
+			out << tempChr << tempInt - 1 << ' ';
 	}
 	out.close();
 }
