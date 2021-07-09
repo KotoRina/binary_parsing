@@ -3,6 +3,9 @@
 
 # include "setting.h"
 
+/*
+* init or zeroing packege
+*/
 Pakege				initPack();
 
 /*

@@ -140,10 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="binary_parsing.cpp" />
+    <ClCompile Include="generate_data.cpp" />
     <ClCompile Include="parser_data.cpp" />
     <ClCompile Include="print_data.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="generate_data.h" />
     <ClInclude Include="parser_data.h" />
     <ClInclude Include="print_data.h" />
     <ClInclude Include="setting.h" />
