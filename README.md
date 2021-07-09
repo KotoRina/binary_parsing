@@ -10,6 +10,10 @@
 
 ### Parsing data from a file to a list
 #### Fields:
-- Name
-- Length
-- Data
+- Name (std::string)
+- Length (int)
+- Data (std::vector<std::string>)
+###
+- Read the data from the file one character at a time and determine which part of the package is the read character
+- Enter the data in the desired fields and add a fully populated item at the end of the list.
+#### The entire architecture is tailored for further ease of data handling
