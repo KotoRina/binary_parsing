@@ -1,7 +1,7 @@
 ﻿#include "setting.h"
 #include "parser_data.h"
 #include "print_data.h"
-# include "generate_data.h"
+#include "generate_data.h"
 
 int main()
 {

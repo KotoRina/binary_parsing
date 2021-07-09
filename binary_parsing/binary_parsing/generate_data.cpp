@@ -3,7 +3,6 @@
 void		genData()
 {
 	int				countPack;
-	std::string		tempStr;
 	char			tempChr;
 	int				tempInt;
 	std::ofstream	out;

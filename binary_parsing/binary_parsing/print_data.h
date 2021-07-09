@@ -1,5 +1,6 @@
 #ifndef PRINT_DATA
 # define PRINT_DATA
+
 # include "setting.h"
 
 /*
